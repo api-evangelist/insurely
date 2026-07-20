@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.insurely.com/integration/api/quick-start/
+docs: https://docs.insurely.com/integration/api/collecting-psd2-data/
+summary:
+  types: [apiKey, http]
+  api_key_in: [header]
+  http_schemes: [bearer]
+  notes: >-
+    Dual-credential model. Backend/server-to-server operations authenticate with
+    a static API key sent in the `authorization-token` header (issued by Insurely
+    via support@insurely.com). User-scoped operations (consents, collections)
+    authenticate with a short-lived per-user JWT session token minted via
+    POST /users/{userUuid}/sessions and sent as a standard Bearer token.
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter_name: authorization-token
+  description: >-
+    Static, tenant-level API key for backend operations (create/find/delete users,
+    mint sessions, list a user's consents/collections by API-key auth). Obtained
+    from Insurely support (support@insurely.com).
+  used_for: [users, sessions, company availability, backend list operations]
+  sources: [docs.insurely.com]
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearer_format: JWT
+  in: header
+  parameter_name: Authorization
+  description: >-
+    Per-user JWT session token for consumer-scoped operations (create/list consents,
+    initiate/list collections, retrieve wealth data). Minted from the backend API key
+    via the sessions endpoint and scoped to a single end user.
+  used_for: [consents, collections, wealth data]
+  sources: [docs.insurely.com]
