@@ -1,8 +1,29 @@
 aid: insurely
 name: Insurely
-description: Insurely is a company surfaced as a portfolio company of insight-partners and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Insurely is a European open finance platform that provides real-time access to
+  consented, structured financial data across investments, pensions, insurance,
+  savings, and credit. Its Open Finance API lets financial institutions, fintechs,
+  and AI companies create end users, capture user consent, run data collections
+  (including PSD2 banking data), and retrieve normalized wealth data through a
+  signal-and-fetch webhook model. The API pairs a static backend API key with
+  short-lived per-user JWT session tokens, pins versions via a date-based
+  Insurely-Version header, and runs on EU-only AWS infrastructure under ISO/IEC
+  27001 certification and GDPR compliance. Insurely is backed by Insight Partners.
 url: https://raw.githubusercontent.com/api-evangelist/insurely/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://assets.insurely.com/images/favicon.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,15 +32,102 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Open Finance
+- Insurance
+- Fintech
+- PSD2
+- Financial Data
+- Data Aggregation
+- Pensions
+- Wealth
+- Europe
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Insurely Open Finance API
+  description: >-
+    Create end users, capture consent, run data collections (including PSD2 banking
+    data), and retrieve structured wealth data. Dual auth (backend API key +
+    per-user JWT), date-based versioning, and collection webhooks.
+  humanURL: https://docs.insurely.com/integration
+  baseURL: https://api.insurely.com
+  tags:
+  - Open Finance
+  - PSD2
+  - Financial Data
+  - Consent
+  properties:
+  - type: Documentation
+    url: https://docs.insurely.com/integration
+  - type: GettingStarted
+    url: https://docs.insurely.com/integration/api/quick-start/
+  - type: APIReference
+    url: https://docs.insurely.com/integration/api/collecting-psd2-data/
+  - type: Authentication
+    url: authentication/insurely-authentication.yml
+  - type: Conventions
+    url: conventions/insurely-conventions.yml
+  - type: Webhooks
+    url: asyncapi/insurely-collection-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/insurely-collection-states.yml
+  - type: Lifecycle
+    url: lifecycle/insurely-lifecycle.yml
+  - type: MCPServer
+    url: mcp/insurely-mcp.yml
 common:
 - type: Website
   url: https://www.insurely.com/
+- type: DeveloperPortal
+  url: https://hub.insurely.com/
+- type: Documentation
+  url: https://docs.insurely.com/integration
+- type: APIReference
+  url: https://docs.insurely.com/integration/api/collecting-psd2-data/
+- type: GettingStarted
+  url: https://docs.insurely.com/integration/api/quick-start/
+- type: SignUp
+  url: https://hub.insurely.com/login/register
+- type: Support
+  url: https://www.insurely.com/contact
+- type: Blog
+  url: https://www.insurely.com/blog
+- type: StatusPage
+  url: https://status.insurely.com
+- type: Authentication
+  url: authentication/insurely-authentication.yml
+- type: Conventions
+  url: conventions/insurely-conventions.yml
+- type: Webhooks
+  url: asyncapi/insurely-collection-webhooks.yml
+- type: ErrorCatalog
+  url: errors/insurely-collection-states.yml
+- type: Lifecycle
+  url: lifecycle/insurely-lifecycle.yml
+- type: Sandbox
+  url: sandbox/insurely-sandbox.yml
+- type: MCPServer
+  url: mcp/insurely-mcp.yml
+- type: LLMsTxt
+  url: llms/insurely-llms.txt
+- type: Conformance
+  url: conformance/insurely-conformance.yml
+- type: Compliance
+  url: https://trust.insurely.com/
+- type: TrustCenter
+  url: security/insurely-trust-center.yml
+- type: DomainSecurity
+  url: security/insurely-domain-security.yml
+- type: Security
+  url: https://www.insurely.com/security
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

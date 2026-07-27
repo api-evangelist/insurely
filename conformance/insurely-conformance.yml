@@ -1,0 +1,23 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.insurely.com/security
+docs: https://trust.insurely.com/
+standards:
+- id: iso-27001
+  conforms: true
+  evidence: Insurely security page and trust center state ISO/IEC 27001 certification.
+- id: gdpr
+  conforms: true
+  evidence: Security page states continuous GDPR compliance; EU-only AWS regions (Frankfurt/Paris).
+- id: psd2
+  conforms: true
+  evidence: Documented PSD2 banking-data collection API (consents, collections, company availability).
+- id: oauth2
+  conforms: false
+  evidence: API uses static API key + minted per-user JWT session tokens, not OAuth2 authorization flows.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json error envelope documented; errors surface as status-value state machines.
+- id: soc2
+  conforms: false
+  evidence: Not published on the security page or trust center.

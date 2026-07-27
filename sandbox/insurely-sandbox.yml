@@ -1,0 +1,18 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.insurely.com/integration/api/quick-start/
+summary: >-
+  Insurely provides sandbox access through the Insurely Hub. The interactive
+  quick-start demo ships with a pre-filled test token so developers can exercise
+  the collection flow before receiving a production API key.
+access:
+  register: https://hub.insurely.com/login/register
+  hub: https://hub.insurely.com/
+credentials:
+  production_api_key: Issued by Insurely support (support@insurely.com) in the authorization-token header.
+  test_token: >-
+    A test token is pre-filled in the docs interactive quick-start demo; no verbatim
+    value is published outside the authenticated demo, so none is recorded here.
+notes:
+- No public catalog of magic test identifiers (test bank accounts / credentials) is published.
+- Test-vs-live separation is by credential (test token vs. issued production API key).

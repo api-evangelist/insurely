@@ -1,0 +1,17 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.insurely.com/integration
+versioning:
+  scheme: date-based request header
+  header: Insurely-Version
+  current: '2026-04-01'
+  docs: https://docs.insurely.com/integration/api/quick-start/
+  notes: Clients pin an API version per request via the Insurely-Version header.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No public deprecation/Sunset (RFC 8594) policy located.
+sla:
+  url: null
+status_page: https://status.insurely.com
+deprecated_operations: []

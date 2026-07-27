@@ -1,0 +1,73 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.insurely.com/integration/api/collection-webhooks/
+format: state-values
+summary: >-
+  Insurely surfaces collection/consent outcomes as terminal status values (not an
+  RFC 9457 problem envelope). The failure and action-required states below are the
+  effective error registry for the collection flow; consumers branch on `status`.
+envelope_field: status
+problems:
+- code: FAILED
+  category: failure
+  meaning: The collection failed for a general/unspecified reason.
+  action: Retry the collection or inspect logs; contact support if persistent.
+- code: FAILED_PDF_PARSE
+  category: failure
+  meaning: A PDF document could not be parsed during collection.
+  action: Ask the user to re-upload a valid document.
+- code: FAILED_PDF_USER_INPUT
+  category: failure
+  meaning: The uploaded PDF requires additional user input to process.
+  action: Prompt the user for the missing input and retry.
+- code: THIRD_PARTY_ERROR
+  category: failure
+  meaning: An upstream data provider returned an error.
+  action: Retry later; the source institution may be temporarily unavailable.
+- code: INCORRECT_CREDENTIALS
+  category: action_required
+  meaning: The end user supplied incorrect login credentials to the source.
+  action: Re-prompt the user to authenticate.
+- code: AUTHENTICATION_TIMEOUT
+  category: action_required
+  meaning: The user did not complete authentication in time.
+  action: Restart the authentication flow.
+- code: AUTHENTICATION_CANCELLED
+  category: action_required
+  meaning: The user cancelled authentication.
+  action: Ask the user to restart and complete authentication.
+- code: AUTHENTICATION_CONFLICT
+  category: action_required
+  meaning: A conflicting authentication session was detected.
+  action: Resolve the conflicting session and retry.
+- code: AUTHENTICATION_MISMATCH
+  category: action_required
+  meaning: Authenticated identity did not match the expected user.
+  action: Restart with the correct user identity.
+- code: TWO_FACTOR_METHOD_SELECTION_TIMEOUT
+  category: action_required
+  meaning: The user did not select a 2FA method in time.
+  action: Restart and prompt for 2FA method selection.
+- code: KYC_FORM
+  category: action_required
+  meaning: A KYC form must be completed to proceed.
+  action: Present the KYC form to the user.
+- code: CONTACT_FORM
+  category: action_required
+  meaning: A contact form must be completed to proceed.
+  action: Present the contact form to the user.
+- code: CUSTOMER_ENROLLMENT_REQUIRED
+  category: action_required
+  meaning: The customer must enroll before data can be collected.
+  action: Route the user through enrollment.
+- code: COLLECTION_INPUT_TIMEOUT
+  category: action_required
+  meaning: Required collection input was not provided in time.
+  action: Restart the collection and gather input promptly.
+- code: ACCOUNT_TEMPORARILY_LOCKED
+  category: failure
+  meaning: The source account is temporarily locked.
+  action: Advise the user to wait and retry later.
+partial_success_states:
+- COMPLETED_PARTIAL
+- COMPLETED_EMPTY

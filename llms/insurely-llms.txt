@@ -1,0 +1,45 @@
+# Insurely
+
+> Insurely provides real-time access to consented, structured financial data across investments, pensions, insurance, savings, and credit for European financial institutions, fintechs, and AI companies. Its Open Finance API lets you create end users, capture consent, run data collections (including PSD2 banking data), and retrieve structured wealth data via a signal-and-fetch webhook model.
+
+Base URL: https://api.insurely.com
+API version header: `Insurely-Version: 2026-04-01`
+Authentication: static API key in the `authorization-token` header (backend) plus a per-user JWT bearer token (consumer-scoped operations).
+
+## APIs
+- [Insurely Open Finance API (integration docs)](https://docs.insurely.com/integration)
+- [Quick start](https://docs.insurely.com/integration/api/quick-start/)
+- [Collecting PSD2 banking data](https://docs.insurely.com/integration/api/collecting-psd2-data/)
+- [Collection webhooks](https://docs.insurely.com/integration/api/collection-webhooks/)
+
+## Products
+- [Open Finance data access](https://www.insurely.com/open-finance)
+- [FIDA guide](https://www.insurely.com/fida)
+
+## Operations
+- POST /users — create user
+- POST /users/{userUuid}/sessions — mint per-user JWT session
+- POST /consents — create data-access consent
+- GET /consents/{consentId}/status — poll consent status
+- POST /collections — initiate a data collection
+- GET /wealth/collection/{collectionId}/status — poll collection status
+- GET /collections/{collectionId}/wealth/data — retrieve collected data
+- GET /companies/availability — check institution PSD2 support
+
+## Docs
+- [Blog](https://www.insurely.com/blog)
+- [Security](https://www.insurely.com/security)
+- [Trust center](https://trust.insurely.com/)
+- [Status page](https://status.insurely.com)
+- [Sign up (Insurely Hub)](https://hub.insurely.com/login/register)
+- [Contact](https://www.insurely.com/contact)
+
+## Artifacts
+- [Authentication](authentication/insurely-authentication.yml)
+- [Conventions](conventions/insurely-conventions.yml)
+- [Webhooks catalog](asyncapi/insurely-collection-webhooks.yml)
+- [Collection states / errors](errors/insurely-collection-states.yml)
+- [Lifecycle](lifecycle/insurely-lifecycle.yml)
+- [Conformance](conformance/insurely-conformance.yml)
+- [Sandbox](sandbox/insurely-sandbox.yml)
+- [MCP (candidate)](mcp/insurely-mcp.yml)

@@ -1,0 +1,49 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: https://docs.insurely.com/integration/api/collecting-psd2-data/
+note: >-
+  No official Insurely MCP server was found. Candidate tool list derived from the
+  documented Open Finance API operations; not an authoritative provider manifest.
+server:
+  name: insurely
+  transport: http
+  base_url: https://api.insurely.com
+  version_header: 'Insurely-Version: 2026-04-01'
+tools:
+- name: create_user
+  description: Create an end user.
+  source_operation: POST /users
+- name: find_user
+  description: Find a user by external id.
+  source_operation: GET /users?externalId
+- name: get_user
+  description: Get user details.
+  source_operation: GET /users/{userUuid}
+- name: create_session
+  description: Mint a per-user JWT session token.
+  source_operation: POST /users/{userUuid}/sessions
+- name: delete_user
+  description: Delete/anonymize a user.
+  source_operation: DELETE /users/{userUuid}
+- name: create_consent
+  description: Create a data-access consent for the user.
+  source_operation: POST /consents
+- name: get_consent_status
+  description: Poll consent status.
+  source_operation: GET /consents/{consentId}/status
+- name: revoke_consent
+  description: Revoke a consent.
+  source_operation: DELETE /consents/{consentId}
+- name: create_collection
+  description: Initiate a data collection.
+  source_operation: POST /collections
+- name: get_collection_status
+  description: Poll collection status.
+  source_operation: GET /wealth/collection/{collectionId}/status
+- name: get_collection_data
+  description: Retrieve collected wealth data.
+  source_operation: GET /collections/{collectionId}/wealth/data
+- name: check_company_availability
+  description: Check whether a company/institution supports PSD2 collection.
+  source_operation: GET /companies/availability

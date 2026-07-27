@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.insurely.com/integration/api/collecting-psd2-data/
+summary: >-
+  Cross-cutting request/response semantics for the Insurely Open Finance API,
+  captured from the integration docs.
+base_url: https://api.insurely.com
+authentication:
+  style: dual (API key + per-user JWT)
+  api_key_header: authorization-token
+  user_token_header: Authorization (Bearer JWT)
+  ref: authentication/insurely-authentication.yml
+versioning:
+  scheme: date-based request header
+  header: Insurely-Version
+  example: '2026-04-01'
+  required: true
+  notes: Every request must pin an API version via the Insurely-Version header.
+  ref: lifecycle/insurely-lifecycle.yml
+async_model:
+  pattern: signal-and-fetch
+  description: >-
+    Long-running collections/consents are polled via status endpoints and/or
+    signalled by webhooks; the webhook is a trigger and the API is the source of truth.
+  status_polling:
+  - GET /consents/{consentId}/status
+  - GET /wealth/collection/{collectionId}/status
+  webhooks_ref: asyncapi/insurely-collection-webhooks.yml
+request_tracing:
+  webhook_event_id: eventId (uuid) on webhook payloads for deduplication
+error_model:
+  style: state-machine status values on consents and collections (see errors/)
+  ref: errors/insurely-collection-states.yml
+idempotency:
+  documented: false
+  notes: No idempotency-key mechanism is documented in the public integration docs.
+rate_limits:
+  documented: false

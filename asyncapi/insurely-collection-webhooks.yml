@@ -1,0 +1,64 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.insurely.com/integration/api/collection-webhooks/
+spec_type: Webhooks
+summary: >-
+  Insurely uses collection webhooks on a "signal and fetch" model: a webhook fires
+  when a data collection reaches a terminal state, and the receiver then calls the
+  API to fetch the authoritative status and data. Payloads never carry collected
+  data or PII.
+delivery:
+  transport: https
+  method: POST
+  configuration: >-
+    Register a publicly reachable HTTPS endpoint with Insurely and receive a signing
+    secret. Respond 2xx quickly and process asynchronously.
+signature:
+  header: X-Insurely-Signature
+  algorithm: HMAC-SHA256
+  encoding: lowercase-hex
+  signed_content: raw request body bytes (verify with constant-time comparison; never re-serialized JSON)
+  secret: per-endpoint signing secret issued at registration
+payload:
+  content_type: application/json
+  fields:
+  - name: collectionId
+    type: string
+    description: Which collection reached a terminal status.
+  - name: status
+    type: string
+    description: The terminal state achieved (see events below).
+  - name: eventId
+    type: string
+    format: uuid
+    description: Unique event id; use for deduplication.
+  - name: timestamp
+    type: string
+    format: date-time
+    description: ISO-8601 event generation time.
+events:
+  success:
+  - COMPLETED
+  - COMPLETED_PARTIAL
+  - COMPLETED_EMPTY
+  failure:
+  - FAILED
+  - FAILED_PDF_PARSE
+  - FAILED_PDF_USER_INPUT
+  - THIRD_PARTY_ERROR
+  action_required:
+  - INCORRECT_CREDENTIALS
+  - AUTHENTICATION_TIMEOUT
+  - AUTHENTICATION_CANCELLED
+  - AUTHENTICATION_CONFLICT
+  - AUTHENTICATION_MISMATCH
+  - TWO_FACTOR_METHOD_SELECTION_TIMEOUT
+  - KYC_FORM
+  - CONTACT_FORM
+  - CUSTOMER_ENROLLMENT_REQUIRED
+  - COLLECTION_INPUT_TIMEOUT
+consumer_rules:
+- Verify the signature before processing.
+- Deduplicate using eventId.
+- Treat webhooks as triggers only; call the collection status endpoint for authoritative data.
+- Endpoint must be publicly accessible over HTTPS.
