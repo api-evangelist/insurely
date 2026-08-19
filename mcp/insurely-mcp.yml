@@ -2,9 +2,8 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: https://docs.insurely.com/integration/api/collecting-psd2-data/
-note: >-
-  No official Insurely MCP server was found. Candidate tool list derived from the
-  documented Open Finance API operations; not an authoritative provider manifest.
+note: No official Insurely MCP server was found. Candidate tool list derived from the documented Open
+  Finance API operations; not an authoritative provider manifest.
 server:
   name: insurely
   transport: http
@@ -47,3 +46,9 @@ tools:
 - name: check_company_availability
   description: Check whether a company/institution supports PSD2 collection.
   source_operation: GET /companies/availability
+deployment:
+  mode: none
+  verified: derived
+  tools: 12
+  checked: '2026-08-12'
+  source: catalog MCP census
