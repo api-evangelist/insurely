@@ -11,6 +11,17 @@ description: >-
   Insurely-Version header, and runs on EU-only AWS infrastructure under ISO/IEC
   27001 certification and GDPR compliance. Insurely is backed by Insight Partners.
 url: https://raw.githubusercontent.com/api-evangelist/insurely/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
