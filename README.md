@@ -64,6 +64,106 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Insurely is a company surfaced as a portfolio company of insight-partners and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Insurely is a European open finance platform that provides real-time access to consented, structured financial data across investments, pensions, insurance, savings, and credit. Its Open Finance API lets financial institutions, fintechs, and AI companies create end users, capture user consent, run data collections (including PSD2 banking data), and retrieve normalized wealth data through a signal-and-fetch webhook model. The API pairs a static backend API key with short-lived per-user JWT session tokens, pins versions via a date-based Insurely-Version header, and runs on EU-only AWS infrastructure under ISO/IEC 27001 certification and GDPR compliance. Insurely is backed by Insight Partners.
 
-Backed by: insight-partners — https://www.insurely.com/
+**Areas:** Company · Open Finance · Insurance · Fintech · PSD2 · Financial Data · Data Aggregation · Pensions · Wealth · Europe
+
+## Insurely on APIs.io
+
+Everything profiled for Insurely is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/insurely/](https://apis.io/providers/insurely/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Insurely Open Finance API](https://apis.io/apis/insurely/insurely-open-finance-api/) — Create end users, capture consent, run data collections (including PSD2 banking data), and retrieve structured wealth data. Dual auth (backend API key +…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Insurely Collection Webhooks](https://apis.io/asyncapis/insurely/insurely-collection-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [insurely](https://apis.io/servers/insurely/insurely/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Insurely Authentication](https://apis.io/security/insurely/insurely-authentication/)
+- [Insurely Domain Security](https://apis.io/security/insurely/insurely-domain-security/)
+- [Insurely Trust Center](https://apis.io/security/insurely/insurely-trust-center/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.insurely.com/)
+- [Documentation](https://docs.insurely.com/integration)
+- [Getting started](https://docs.insurely.com/integration/api/quick-start/)
+- [API reference](https://docs.insurely.com/integration/api/collecting-psd2-data/)
+- [Sign up](https://hub.insurely.com/login/register)
+- [Support](https://www.insurely.com/contact)
+- [Blog](https://www.insurely.com/blog)
+- [Security](https://www.insurely.com/security)
+- [Compliance](https://trust.insurely.com/)
+- [Status](https://status.insurely.com)
+
+## API Evangelist rating
+
+**Kin Score 33.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 15.8 |
+
+**Agent readiness 22.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.3** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/insurely/](https://apis.io/providers/insurely/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Insurely: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/insurely/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
